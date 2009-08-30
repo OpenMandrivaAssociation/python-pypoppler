@@ -21,6 +21,13 @@ BuildRequires:	libpoppler-glib-devel >= 0.10.5
 Python bindings for the Poppler PDF rendering library. It is needed to
 run programs written in Python and using Poppler set.
 
+%files
+%defattr(-,root,root)
+%doc AUTHORS ChangeLog COPYING NEWS
+%{py_platsitedir}/poppler.la
+%{py_platsitedir}/poppler.so
+
+#--------------------------------------------------------------------
 
 %prep
 %setup -q -n %{module}-%{version}
@@ -37,10 +44,3 @@ autoconf
 
 %clean
 %__rm -rf %{buildroot}
-
-%files
-%defattr(-,root,root)
-%doc AUTHORS ChangeLog COPYING NEWS
-%{py_platsitedir}/poppler.la
-%{py_platsitedir}/poppler.so
-
