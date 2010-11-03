@@ -3,14 +3,14 @@
 Summary:	Python bindings for the Poppler PDF rendering library
 Name:		python-%{module}
 Version:	0.12.1
-Release:	%mkrel 2
+Release:	%mkrel 3
 Source0:	http://launchpad.net/poppler-python/trunk/development/+download/%{module}-%{version}.tar.gz
 License:	GPLv2+
 Group:		Development/Python
 Url:		https://launchpad.net/poppler-python
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Provides:	%{module}
-%py_requires -d
+BuildRequires:	python-devel 
 BuildRequires:	pygtk2.0-devel
 BuildRequires:	atk-devel
 BuildRequires:	libpoppler-devel
