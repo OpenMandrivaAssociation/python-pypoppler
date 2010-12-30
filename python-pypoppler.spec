@@ -5,11 +5,13 @@ Name:		python-%{module}
 Version:	0.12.1
 Release:	%mkrel 4
 Source0:	http://launchpad.net/poppler-python/trunk/development/+download/%{module}-%{version}.tar.gz
+Patch0:		pypoppler-0.12.1-poppler-0.16.0.patch
+Patch1:		pypoppler-0.12.1-link.patch
 License:	GPLv2+
 Group:		Development/Python
 Url:		https://launchpad.net/poppler-python
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Provides:	%{module}
+Provides:	%{module} = %{version}
 BuildRequires:	python-devel 
 BuildRequires:	pygtk2.0-devel
 BuildRequires:	atk-devel
@@ -31,11 +33,11 @@ run programs written in Python and using Poppler set.
 
 %prep
 %setup -q -n %{module}-%{version}
-aclocal
-autoconf
+%patch0 -p0
+%patch1 -p0
 
 %build
-%configure
+%configure2_5x
 %make
 
 %install
