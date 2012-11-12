@@ -1,0 +1,22 @@
+--- Makefile.am.link	2010-12-30 05:58:58.000000000 +0000
++++ Makefile.am	2010-12-30 05:59:14.000000000 +0000
+@@ -11,7 +11,7 @@
+ pyexec_LTLIBRARIES = poppler.la
+ poppler_la_LDFLAGS = -module -avoid-version -export-symbols-regex initpoppler
+ poppler_la_CFLAGS = $(PYPOPPLER_CFLAGS) $(PYCAIRO_CFLAGS) 
+-poppler_la_LIBADD = $(PYPOPPLER_LIBS)
++poppler_la_LIBADD = $(PYPOPPLER_LIBS) -lpython$(PYTHON_VERSION)
+ poppler_la_SOURCES = popplermodule.c pypoppler-private.h
+ nodist_poppler_la_SOURCES = poppler.c
+ poppler.c: poppler.defs poppler.override
+--- Makefile.in.link	2010-12-30 05:59:24.000000000 +0000
++++ Makefile.in	2010-12-30 05:59:35.000000000 +0000
+@@ -291,7 +291,7 @@
+ pyexec_LTLIBRARIES = poppler.la
+ poppler_la_LDFLAGS = -module -avoid-version -export-symbols-regex initpoppler
+ poppler_la_CFLAGS = $(PYPOPPLER_CFLAGS) $(PYCAIRO_CFLAGS) 
+-poppler_la_LIBADD = $(PYPOPPLER_LIBS)
++poppler_la_LIBADD = $(PYPOPPLER_LIBS) -lpython$(PYTHON_VERSION)
+ poppler_la_SOURCES = popplermodule.c pypoppler-private.h
+ nodist_poppler_la_SOURCES = poppler.c
+ CLEANFILES = poppler.c
