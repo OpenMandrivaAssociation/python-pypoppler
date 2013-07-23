@@ -3,10 +3,12 @@
 Summary:	Python bindings for the Poppler PDF rendering library
 Name:		python-%{module}
 Version:	0.12.1
-Release:	5
+Release:	7
 Source0:	http://launchpad.net/poppler-python/trunk/development/+download/%{module}-%{version}.tar.gz
 Patch0:		pypoppler-0.12.1-poppler-0.16.0.patch
 Patch1:		pypoppler-0.12.1-link.patch
+Patch2:		pypoppler-0.12.1-poppler-0.18.0-minimal-fix.patch
+Patch3:		pypoppler-0.12.1-resource_leaks.patch
 License:	GPLv2+
 Group:		Development/Python
 Url:		https://launchpad.net/poppler-python
@@ -32,6 +34,8 @@ run programs written in Python and using Poppler set.
 %setup -q -n %{module}-%{version}
 %patch0 -p0
 %patch1 -p0
+%patch2 -p1
+%patch3 -p1
 
 %build
 %configure2_5x
