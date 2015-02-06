@@ -3,7 +3,7 @@
 Summary:	Python bindings for the Poppler PDF rendering library
 Name:		python-%{module}
 Version:	0.12.1
-Release:	7
+Release:	8
 Source0:	http://launchpad.net/poppler-python/trunk/development/+download/%{module}-%{version}.tar.gz
 Patch0:		pypoppler-0.12.1-poppler-0.16.0.patch
 Patch1:		pypoppler-0.12.1-link.patch
