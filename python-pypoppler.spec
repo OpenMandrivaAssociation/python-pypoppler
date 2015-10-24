@@ -17,7 +17,7 @@ BuildRequires:	python2-devel
 BuildRequires:	pygtk2.0-devel
 BuildRequires:	atk-devel
 BuildRequires:	poppler-devel
-BuildRequires:	python-cairo-devel
+BuildRequires:	python2-cairo-devel
 BuildRequires:	poppler-glib-devel >= 0.10.5
 
 %description
