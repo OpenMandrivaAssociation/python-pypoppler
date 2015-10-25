@@ -13,6 +13,7 @@ BuildRequires:	python2-devel
 BuildRequires:	python2-setuptools
 BuildRequires:	poppler-devel
 BuildRequires:	python2-cairo-devel
+BuildRequires:	pkgconfig(pygobject-2.0)
 BuildRequires:	poppler-glib-devel >= 0.10.5
 
 %description
