@@ -10,6 +10,7 @@ Group:		Development/Python
 Url:		https://launchpad.net/poppler-python
 Provides:	%{module} = %{version}
 BuildRequires:	python2-devel 
+BuildRequires:	python2-setuptools
 BuildRequires:	poppler-devel
 BuildRequires:	python2-cairo-devel
 BuildRequires:	poppler-glib-devel >= 0.10.5
