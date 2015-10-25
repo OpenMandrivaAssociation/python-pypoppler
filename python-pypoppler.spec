@@ -2,20 +2,14 @@
 
 Summary:	Python bindings for the Poppler PDF rendering library
 Name:		python-%{module}
-Version:	0.12.1
-Release:	9
+Version:	0.12.2
+Release:	1
 Source0:	http://launchpad.net/poppler-python/trunk/development/+download/%{module}-%{version}.tar.gz
-Patch0:		pypoppler-0.12.1-poppler-0.16.0.patch
-Patch1:		pypoppler-0.12.1-link.patch
-Patch2:		pypoppler-0.12.1-poppler-0.18.0-minimal-fix.patch
-Patch3:		pypoppler-0.12.1-resource_leaks.patch
 License:	GPLv2+
 Group:		Development/Python
 Url:		https://launchpad.net/poppler-python
 Provides:	%{module} = %{version}
 BuildRequires:	python2-devel 
-BuildRequires:	pygtk2.0-devel
-BuildRequires:	atk-devel
 BuildRequires:	poppler-devel
 BuildRequires:	python2-cairo-devel
 BuildRequires:	poppler-glib-devel >= 0.10.5
@@ -25,25 +19,20 @@ Python bindings for the Poppler PDF rendering library. It is needed to
 run programs written in Python and using Poppler set.
 
 %files
-%doc AUTHORS ChangeLog COPYING NEWS
-%{py2_platsitedir}/poppler.so
+%doc README
+%{py2_platsitedir}/*
 
 #--------------------------------------------------------------------
 
 %prep
 %setup -q -n %{module}-%{version}
-%patch0 -p0
-%patch1 -p0
-%patch2 -p1
-%patch3 -p1
+%apply_patches
 
 %build
-export PYTHON=%__python2
-%configure2_5x
-%make
+python2 setup.py build
 
 %install
-%makeinstall_std
+python2 setup.py install -O1 --skip-build --root %{buildroot}
 
 %changelog
 * Thu Dec 30 2010 Funda Wang <fwang@mandriva.org> 0.12.1-4mdv2011.0

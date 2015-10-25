@@ -1,2 +1,4 @@
+removed_sources:
+  pypoppler-0.12.1.tar.gz: a8a92039911a7c4bbd995a46f88a1877bf88ab5c
 sources:
-  "pypoppler-0.12.1.tar.gz": a8a92039911a7c4bbd995a46f88a1877bf88ab5c
+  pypoppler-0.12.2.tar.gz: ee483867e50f1c9ab0126c03bee0cca1649d25a0
