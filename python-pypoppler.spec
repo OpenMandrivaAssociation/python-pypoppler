@@ -10,6 +10,7 @@ Group:		Development/Python
 Url:		https://launchpad.net/poppler-python
 Provides:	%{module} = %{version}
 BuildRequires:	python-devel 
+BuildRequires:	python-setuptools
 BuildRequires:	pygtk2.0-devel
 BuildRequires:	atk-devel
 BuildRequires:	libpoppler-devel
