@@ -5,7 +5,7 @@ Name:		python-%{module}
 Version:	0.12.2
 Release:	2
 Source0:	http://launchpad.net/poppler-python/trunk/development/+download/%{module}-%{version}.tar.gz
-Parch0:   pypoppler-0.12.2-poppler-orientation.patch
+Patch0:   pypoppler-0.12.2-poppler-orientation.patch
 License:	GPLv2+
 Group:		Development/Python
 Url:		https://launchpad.net/poppler-python
