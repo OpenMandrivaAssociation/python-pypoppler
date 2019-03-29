@@ -1,0 +1,66 @@
+From b91d3f1124443f1465119337f17a2a8832bd979c Mon Sep 17 00:00:00 2001
+From: Christophe Fergeau <cfergeau@redhat.com>
+Date: Thu, 28 Apr 2016 10:58:21 +0200
+Subject: [PATCH] Remove PopplerOrientation definition
+
+It has been removed in poppler 0.39 but this inadvertantly broke
+poppler-glib API/ABI, see
+https://bugs.freedesktop.org/show_bug.cgi?id=93229
+
+Resolves: rhbz#1307888, rhbz#1323497
+---
+ poppler.c    |  1 -
+ poppler.defs | 17 -----------------
+ 2 files changed, 18 deletions(-)
+
+diff --git a/poppler.c b/poppler.c
+index 31b4489..16d0838 100644
+--- a/poppler.c
++++ b/poppler.c
+@@ -4501,7 +4501,6 @@ py_poppler_add_constants(PyObject *module, const gchar *strip_prefix)
+   pyg_enum_add(module, "FormTextType", strip_prefix, POPPLER_TYPE_FORM_TEXT_TYPE);
+   pyg_enum_add(module, "FormChoiceType", strip_prefix, POPPLER_TYPE_FORM_CHOICE_TYPE);
+   pyg_enum_add(module, "Error", strip_prefix, POPPLER_TYPE_ERROR);
+-  pyg_enum_add(module, "Orientation", strip_prefix, POPPLER_TYPE_ORIENTATION);
+   pyg_enum_add(module, "PageTransitionType", strip_prefix, POPPLER_TYPE_PAGE_TRANSITION_TYPE);
+   pyg_enum_add(module, "PageTransitionAlignment", strip_prefix, POPPLER_TYPE_PAGE_TRANSITION_ALIGNMENT);
+   pyg_enum_add(module, "PageTransitionDirection", strip_prefix, POPPLER_TYPE_PAGE_TRANSITION_DIRECTION);
+diff --git a/poppler.defs b/poppler.defs
+index 8b12e03..86c109b 100644
+--- a/poppler.defs
++++ b/poppler.defs
+@@ -570,18 +570,6 @@
+   )
+ )
+ 
+-(define-enum Orientation
+-  (in-module "Poppler")
+-  (c-name "PopplerOrientation")
+-  (gtype-id "POPPLER_TYPE_ORIENTATION")
+-  (values
+-    '("portrait" "POPPLER_ORIENTATION_PORTRAIT")
+-    '("landscape" "POPPLER_ORIENTATION_LANDSCAPE")
+-    '("upsidedown" "POPPLER_ORIENTATION_UPSIDEDOWN")
+-    '("seascape" "POPPLER_ORIENTATION_SEASCAPE")
+-  )
+-)
+-
+ (define-enum PageTransitionType
+   (in-module "Poppler")
+   (c-name "PopplerPageTransitionType")
+@@ -1341,11 +1329,6 @@
+   (return-type "GType")
+ )
+ 
+-(define-function poppler_orientation_get_type
+-  (c-name "poppler_orientation_get_type")
+-  (return-type "GType")
+-)
+-
+ (define-function poppler_page_transition_type_get_type
+   (c-name "poppler_page_transition_type_get_type")
+   (return-type "GType")
+-- 
+2.7.4
+
+
